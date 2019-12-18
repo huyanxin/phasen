@@ -1,0 +1,5 @@
+*.wav
+data/wavs*
+exp*
+*.pyc*
+

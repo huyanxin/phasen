@@ -1,0 +1,5 @@
+torch>=1.0
+soundfile 
+numpy
+pypesq
+pystoi
