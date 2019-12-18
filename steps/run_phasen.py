@@ -189,10 +189,11 @@ def validation(model, args, lr, epoch, device):
 def decode(model, args, device):
     model.eval()
 
-    # If set true, there will be impulse noise 
+    # If set true, there may be impulse noise 
     # in the border on segements.
-    # If you don't care it, you can set True
-    decode_do_segement=False
+    # If you can not bear it, you can set False
+
+    decode_do_segement=True
     with torch.no_grad():
         
         data_reader = DataReader(
@@ -214,17 +215,22 @@ def decode(model, args, device):
             if t > int(1.5*window) and decode_do_segement:
                 outputs = np.zeros(t)
                 stride = window//2
+                give_up_length=stride//2
                 current_idx = 0
                 while current_idx + window < t:
-                        tmp_input = inputs[:,current_idx:current_idx+window]
-                        tmp_output = model(tmp_input)[1][0].cpu().numpy()
-                        outputs[current_idx:current_idx+window] += tmp_output 
-                        current_idx += stride
+                    tmp_input = inputs[:,current_idx:current_idx+window]
+                    tmp_output = model(tmp_input,)[1][0].cpu().numpy()
+                    if current_idx == 0:
+                        outputs[current_idx:current_idx+window-give_up_length] = tmp_output[:-give_up_length]
+
+                    else:
+                        outputs[current_idx+give_up_length:current_idx+window-give_up_length] = tmp_output[stride//2:-give_up_length]
+                    current_idx += stride 
                 if current_idx < t:
                     tmp_input = inputs[:,current_idx:current_idx+window]
                     tmp_output = model(tmp_input)[1][0].cpu().numpy()
-                    outputs[current_idx:current_idx+tmp_output.shape[0]] += tmp_output 
-                outputs[stride:current_idx+stride]/=2
+                    length = tmp_output[stride//2:].shape[0]
+                    outputs[current_idx+stride//2:current_idx+stride//2+length] = tmp_output[stride//2:]
             else:
                 outputs = model(inputs)[1][0].cpu().numpy()
             outputs = outputs[:nsamples]

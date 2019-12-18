@@ -11,7 +11,7 @@ Unofficial PyTorch implementation of MSRA's:
 ![Noisy](./figs/noisy.png)
 ![enh](./figs/phasen.png)
 
-May be there is something different with the paper, but it worked not bad.
+Maybe there is something different with the paper, but it worked not bad.
 
 ---
 
