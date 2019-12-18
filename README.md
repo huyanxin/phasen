@@ -22,6 +22,9 @@ pip install -r requirements.txt
 ```
 2. download datasets 
 if you don't have WSJ0, you can follow this use aishell-1 
+
+follow this
+
 [se-cldnn-torch](https://github.com/huyanxin/se-cldnn-torch) 
 
 3. run.
@@ -31,6 +34,6 @@ bash run_phasen.sh
 ```
 
 ## Reference:
-    funcwj's [voice-filter](https://github.com/funcwj/voice-filter)
-    wangkenpu's [Conv-Tasnet](https://github.com/wangkenpu/Conv-TasNet-PyTorch)
-    pseeth's [torch-stft](https://github.com/pseeth/torch-stft)
+funcwj's [voice-filter](https://github.com/funcwj/voice-filter)
+wangkenpu's [Conv-Tasnet](https://github.com/wangkenpu/Conv-TasNet-PyTorch)
+pseeth's [torch-stft](https://github.com/pseeth/torch-stft)
