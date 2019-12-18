@@ -21,9 +21,7 @@ pip install -r requirements.txt
 
 ```
 2. download datasets 
-if you don't have WSJ0, you can follow this use aishell-1 
-
-follow this [se-cldnn-torch](https://github.com/huyanxin/se-cldnn-torch) 
+if you don't have WSJ0, you can follow this use aishell-1 by following this [se-cldnn-torch](https://github.com/huyanxin/se-cldnn-torch) 
 
 3. run.
 before you run it, please set the correct params in `./run_phasen.sh`
