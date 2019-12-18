@@ -1,17 +1,16 @@
 # PHASEN
 
 ---
-
 Unofficial PyTorch implementation of MSRA's:
     [PHASEN: A Phase-and-Harmonics-Aware Speech Enhancement Network](https://arxiv.org/abs/1911.04697).
 ![](./figs/phasen-net.png) 
 
-May be there is something different with the paper, but it worked not bad.
 ---
 
 ## My resutls on real-world test
 ![Noisy](./figs/noisy.png)
 ![enh](./figs/phasen.png)
+May be there is something different with the paper, but it worked not bad.
 
 ---
 
